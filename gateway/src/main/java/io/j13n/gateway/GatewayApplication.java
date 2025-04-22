@@ -1,4 +1,4 @@
-package io.j13n.gateway;
+package io.bangbnag.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

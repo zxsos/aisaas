@@ -8,7 +8,7 @@
         <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>io.j13n</groupId>
+    <groupId>io.bangbnag</groupId>
     <artifactId>search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>search</name>

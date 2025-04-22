@@ -1,4 +1,4 @@
-package io.j13n.config;
+package io.bangbnag.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
