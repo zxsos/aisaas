@@ -15,10 +15,8 @@ import io.j13n.commons.jackson.SortSerializationModule;
 import io.j13n.commons.jackson.TupleSerializationModule;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.async.RedisAsyncCommands;
 import io.lettuce.core.codec.RedisCodec;
 import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
-import io.lettuce.core.pubsub.api.async.RedisPubSubAsyncCommands;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +25,9 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.task.AsyncTaskExecutor;
+import org.springframework.core.task.support.TaskExecutorAdapter;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.http.codec.ServerCodecConfigurer;
-import org.springframework.http.codec.json.Jackson2JsonDecoder;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -38,11 +35,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.lang.reflect.Type;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.concurrent.Executors;
 
 public abstract class AbstractBaseConfiguration implements WebMvcConfigurer {
 
@@ -74,6 +71,11 @@ public abstract class AbstractBaseConfiguration implements WebMvcConfigurer {
         this.objectMapper.registerModule(new SortSerializationModule());
 
         this.objectCodec = "object".equals(codecType) ? new RedisObjectCodec() : new RedisJSONCodec(this.objectMapper);
+    }
+
+    @Bean
+    public AsyncTaskExecutor applicationTaskExecutor() {
+        return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
     }
 
     @Bean

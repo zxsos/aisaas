@@ -1,6 +1,7 @@
 package io.j13n.commons.exeception;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.experimental.Accessors;
 import org.springframework.http.HttpStatus;
 
@@ -10,6 +11,8 @@ import java.util.Calendar;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+@Getter
 public class GenericException extends RuntimeException {
 
 	@Serial
@@ -40,18 +43,10 @@ public class GenericException extends RuntimeException {
 		this.exceptionId = exceptionId;
 	}
 
-	public HttpStatus getStatusCode() {
-		return statusCode;
-	}
-
-	public String getExceptionId() {
-		return this.exceptionId;
-	}
-
-	public static final String uniqueId() {
+    public static String uniqueId() {
 
 		return (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance()
-		        .getTime()) + "-" + Long.toHexString(System.currentTimeMillis() % (1000 * 60 * 60 * 24l));
+		        .getTime()) + "-" + Long.toHexString(System.currentTimeMillis() % (1000 * 60 * 60 * 24L));
 	}
 
 	public GenericExceptionData toExceptionData() {
