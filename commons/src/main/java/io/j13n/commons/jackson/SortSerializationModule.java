@@ -46,10 +46,10 @@ public class SortSerializationModule extends Module {
 
         @Override
         public Sort deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
-            throws IOException {
+                throws IOException {
 
             TreeNode treeNode = jsonParser.getCodec()
-                .readTree(jsonParser);
+                    .readTree(jsonParser);
 
             if (treeNode.isObject()) {
                 return Sort.by(this.makeOrderFromNode((JsonNode) treeNode));
@@ -69,21 +69,21 @@ public class SortSerializationModule extends Module {
         private Sort.Order makeOrderFromNode(JsonNode jsonNode) {
 
             Sort.Direction direction = jsonNode.has("direction") ? Sort.Direction.valueOf(jsonNode.get("direction")
-                .textValue()) : Sort.DEFAULT_DIRECTION;
+                    .textValue()) : Sort.DEFAULT_DIRECTION;
 
             NullHandling nullHandling = jsonNode.has("nullHandling")
-                ? NullHandling.valueOf(jsonNode.get("nullHandling")
-                .textValue())
-                : null;
+                    ? NullHandling.valueOf(jsonNode.get("nullHandling")
+                    .textValue())
+                    : null;
 
             String property = jsonNode.get("property")
-                .textValue();
+                    .textValue();
 
             Sort.Order order = nullHandling == null ? new Sort.Order(direction, property)
-                : new Sort.Order(direction, property, nullHandling);
+                    : new Sort.Order(direction, property, nullHandling);
 
             if (jsonNode.has("ignoreCase") && BooleanUtil.safeValueOf(jsonNode.get("ignoreCase")
-                .textValue()))
+                    .textValue()))
                 order = order.ignoreCase();
 
             return order;

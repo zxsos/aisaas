@@ -15,37 +15,37 @@ import java.time.ZoneOffset;
 
 public class CommonsSerializationModule extends SimpleModule {
 
-	@Serial
-	private static final long serialVersionUID = 6242981337057158018L;
+    @Serial
+    private static final long serialVersionUID = 6242981337057158018L;
 
-	public CommonsSerializationModule() {
+    public CommonsSerializationModule() {
 
-		super();
+        super();
 
-		this.addDeserializer(LocalDateTime.class, new StdDeserializer<LocalDateTime>((Class<?>) null) {
+        this.addDeserializer(LocalDateTime.class, new StdDeserializer<LocalDateTime>((Class<?>) null) {
 
-			@Serial
-			private static final long serialVersionUID = 4146504589335966256L;
+            @Serial
+            private static final long serialVersionUID = 4146504589335966256L;
 
-			@Override
-			public LocalDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+            @Override
+            public LocalDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
 
-				long inst = p.getValueAsLong();
-				return LocalDateTime.ofEpochSecond(inst, 0, ZoneOffset.UTC);
-			}
-		});
+                long inst = p.getValueAsLong();
+                return LocalDateTime.ofEpochSecond(inst, 0, ZoneOffset.UTC);
+            }
+        });
 
-		this.addSerializer(LocalDateTime.class, new StdSerializer<LocalDateTime>((Class<LocalDateTime>) null) {
+        this.addSerializer(LocalDateTime.class, new StdSerializer<LocalDateTime>((Class<LocalDateTime>) null) {
 
-			@Serial
-			private static final long serialVersionUID = -3480737241961681306L;
+            @Serial
+            private static final long serialVersionUID = -3480737241961681306L;
 
-			@Override
-			public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider provider)
-					throws IOException {
+            @Override
+            public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider provider)
+                    throws IOException {
 
-				gen.writeNumber(value.toEpochSecond(ZoneOffset.UTC));
-			}
-		});
-	}
+                gen.writeNumber(value.toEpochSecond(ZoneOffset.UTC));
+            }
+        });
+    }
 }

@@ -11,17 +11,13 @@ import java.util.function.Function;
 
 public class AbstractMessageService {
 
-    protected static final String UKNOWN_ERROR = "unknown_error";
-
     public static final String VALUEOF_METHOD_NOT_FOUND = "valueof_method_not_found";
     public static final String UNABLE_TO_CONVERT = "unable_to_convert";
     public static final String UNKNOWN_ERROR_WITH_ID = "unknown_error_with_id";
     public static final String CANNOT_BE_UPDATED = "cannot_be_updated";
-
     public static final String OBJECT_NOT_FOUND = "object_not_found";
     public static final String FIELD_NOT_AVAILABLE = " field cannot be updated, it might not be available or unmodifiable";
-
-
+    protected static final String UKNOWN_ERROR = "unknown_error";
     protected Map<Locale, ResourceBundle> bundleMap;
 
     protected AbstractMessageService(Map<Locale, ResourceBundle> bundle) {
