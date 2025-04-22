@@ -1,4 +1,4 @@
-package io.bangbnag.commons;
+package io.bangbang.commons;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

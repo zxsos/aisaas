@@ -1,9 +1,9 @@
-package io.bangbnag.commons.codec;
+package io.bangbang.commons.codec;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.bangbnag.commons.exeception.GenericException;
+import io.bangbang.commons.exeception.GenericException;
 import io.lettuce.core.codec.RedisCodec;
 import org.springframework.http.HttpStatus;
 

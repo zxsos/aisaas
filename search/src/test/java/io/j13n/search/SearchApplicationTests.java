@@ -1,4 +1,4 @@
-package io.bangbnag.search;
+package io.bangbang.search;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

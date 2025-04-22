@@ -1,4 +1,4 @@
-package io.bangbnag.commons.exeception;
+package io.bangbang.commons.exeception;
 
 import lombok.Data;
 import lombok.Getter;

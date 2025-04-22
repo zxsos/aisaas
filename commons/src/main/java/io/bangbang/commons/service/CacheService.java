@@ -1,4 +1,4 @@
-package io.bangbnag.commons.service;
+package io.bangbang.commons.service;
 
 import io.lettuce.core.api.sync.RedisCommands;
 import io.lettuce.core.pubsub.RedisPubSubAdapter;

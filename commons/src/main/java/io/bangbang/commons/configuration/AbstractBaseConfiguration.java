@@ -1,4 +1,4 @@
-package io.bangbnag.commons.configuration;
+package io.bangbang.commons.configuration;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,12 +7,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.bangbnag.commons.codec.RedisJSONCodec;
-import io.bangbnag.commons.codec.RedisObjectCodec;
-import io.bangbnag.commons.gson.LocalDateTimeAdapter;
-import io.bangbnag.commons.jackson.CommonsSerializationModule;
-import io.bangbnag.commons.jackson.SortSerializationModule;
-import io.bangbnag.commons.jackson.TupleSerializationModule;
+import io.bangbang.commons.codec.RedisJSONCodec;
+import io.bangbang.commons.codec.RedisObjectCodec;
+import io.bangbang.commons.gson.LocalDateTimeAdapter;
+import io.bangbang.commons.jackson.CommonsSerializationModule;
+import io.bangbang.commons.jackson.SortSerializationModule;
+import io.bangbang.commons.jackson.TupleSerializationModule;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.codec.RedisCodec;

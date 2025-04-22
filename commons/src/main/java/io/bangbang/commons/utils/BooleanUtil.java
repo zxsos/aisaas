@@ -1,4 +1,4 @@
-package io.bangbnag.commons.utils;
+package io.bangbang.commons.utils;
 
 import jakarta.annotation.Nullable;
 import org.springframework.expression.ParseException;

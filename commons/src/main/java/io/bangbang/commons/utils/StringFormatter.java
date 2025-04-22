@@ -1,4 +1,4 @@
-package io.bangbnag.commons.utils;
+package io.bangbang.commons.utils;
 
 public final class StringFormatter {
     private static final char PLACEHOLDER = '$';

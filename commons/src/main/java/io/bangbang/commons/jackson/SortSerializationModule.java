@@ -1,4 +1,4 @@
-package io.bangbnag.commons.jackson;
+package io.bangbang.commons.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.TreeNode;
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.module.SimpleDeserializers;
 import com.fasterxml.jackson.databind.module.SimpleSerializers;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import io.bangbnag.commons.utils.BooleanUtil;
+import io.bangbang.commons.utils.BooleanUtil;
 import org.springframework.cloud.openfeign.support.SortJsonComponent;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.NullHandling;

@@ -1,4 +1,4 @@
-package io.bangbnag.eureka;
+package io.bangbang.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

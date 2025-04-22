@@ -1,7 +1,7 @@
-package io.bangbnag.commons.configuration.service;
+package io.bangbang.commons.configuration.service;
 
-import io.bangbnag.commons.exeception.GenericException;
-import io.bangbnag.commons.utils.StringFormatter;
+import io.bangbang.commons.exeception.GenericException;
+import io.bangbang.commons.utils.StringFormatter;
 
 import java.util.Locale;
 import java.util.Map;

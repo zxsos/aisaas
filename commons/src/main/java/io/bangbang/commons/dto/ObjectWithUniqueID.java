@@ -1,4 +1,4 @@
-package io.bangbnag.commons.dto;
+package io.bangbang.commons.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

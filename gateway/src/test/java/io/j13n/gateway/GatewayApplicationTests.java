@@ -1,4 +1,4 @@
-package io.bangbnag.gateway;
+package io.bangbang.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

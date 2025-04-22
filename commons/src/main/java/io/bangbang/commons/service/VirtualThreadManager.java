@@ -1,4 +1,4 @@
-package io.bangbnag.commons.service;
+package io.bangbang.commons.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

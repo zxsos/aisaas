@@ -1,4 +1,4 @@
-package io.bangbnag.commons.gson;
+package io.bangbang.commons.gson;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

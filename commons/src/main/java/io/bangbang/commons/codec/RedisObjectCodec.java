@@ -1,4 +1,4 @@
-package io.bangbnag.commons.codec;
+package io.bangbang.commons.codec;
 
 import io.lettuce.core.codec.RedisCodec;
 import org.slf4j.Logger;

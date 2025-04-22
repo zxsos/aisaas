@@ -1,4 +1,4 @@
-package io.bangbnag.commons.service;
+package io.bangbang.commons.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

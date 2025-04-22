@@ -1,4 +1,4 @@
-package io.bangbnag.search;
+package io.bangbang.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
