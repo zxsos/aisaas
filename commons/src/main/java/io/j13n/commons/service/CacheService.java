@@ -20,12 +20,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-
-import static java.util.Arrays.*;
 
 @Service
 public class CacheService extends RedisPubSubAdapter<String, String> {
@@ -254,7 +251,8 @@ public class CacheService extends RedisPubSubAdapter<String, String> {
      * @param <T> the type of the value
      * @return a CompletableFuture representing the result of the operation
      */
-    public <T> CompletableFuture<Optional<T>> cacheEmptyValueOrGetAsync(String cName, Supplier<Optional<T>> supplier, Object... keys) {
+    public <T> CompletableFuture<Optional<T>> cacheEmptyValueOrGetAsync(
+            String cName, Supplier<Optional<T>> supplier, Object... keys) {
         CompletableFuture<Optional<T>> future = new CompletableFuture<>();
 
         // Create a virtual thread to handle the cache operation
@@ -386,23 +384,23 @@ public class CacheService extends RedisPubSubAdapter<String, String> {
 
                     // Wait for all futures to complete
                     CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
-                        .thenRun(() -> {
-                            boolean result = futures.stream()
-                                .map(f -> {
-                                    try {
-                                        return f.get();
-                                    } catch (Exception e) {
-                                        return false;
-                                    }
-                                })
-                                .reduce(true, (a, b) -> a && b);
+                            .thenRun(() -> {
+                                boolean result = futures.stream()
+                                        .map(f -> {
+                                            try {
+                                                return f.get();
+                                            } catch (Exception e) {
+                                                return false;
+                                            }
+                                        })
+                                        .reduce(true, (a, b) -> a && b);
 
-                            finalResult.complete(result);
-                        })
-                        .exceptionally(e -> {
-                            finalResult.completeExceptionally(e);
-                            return null;
-                        });
+                                finalResult.complete(result);
+                            })
+                            .exceptionally(e -> {
+                                finalResult.completeExceptionally(e);
+                                return null;
+                            });
                 } catch (Exception e) {
                     finalResult.completeExceptionally(e);
                 }
@@ -438,23 +436,23 @@ public class CacheService extends RedisPubSubAdapter<String, String> {
 
                 // Wait for all futures to complete
                 CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
-                    .thenRun(() -> {
-                        boolean result = futures.stream()
-                            .map(f -> {
-                                try {
-                                    return f.get();
-                                } catch (Exception e) {
-                                    return false;
-                                }
-                            })
-                            .reduce(true, (a, b) -> a && b);
+                        .thenRun(() -> {
+                            boolean result = futures.stream()
+                                    .map(f -> {
+                                        try {
+                                            return f.get();
+                                        } catch (Exception e) {
+                                            return false;
+                                        }
+                                    })
+                                    .reduce(true, (a, b) -> a && b);
 
-                        finalResult.complete(result);
-                    })
-                    .exceptionally(e -> {
-                        finalResult.completeExceptionally(e);
-                        return null;
-                    });
+                            finalResult.complete(result);
+                        })
+                        .exceptionally(e -> {
+                            finalResult.completeExceptionally(e);
+                            return null;
+                        });
             } catch (Exception e) {
                 finalResult.completeExceptionally(e);
             }
